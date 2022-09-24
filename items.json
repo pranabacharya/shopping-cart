@@ -1,0 +1,27 @@
+[
+    {
+        "itemname": "Casual Shirts(Combo Pack)",
+        "itemdescription": "Pack of three Shirts rated the best in the month",
+        "itemprice": 35,
+        "itemimage": "img/shirt3.png"
+    },
+    {
+        "itemname": "Casual Shirts(Combo Pack)",
+        "itemdescription": "Pack of three Shirts rated the best in the month",
+        "itemprice": 120,
+        "itemimage": "img/shirt4.png"
+    },
+    {
+        "itemname": "Casual Shirts(Combo Pack)",
+        "itemdescription": "Pack of three Shirts rated the best in the month",
+        "itemprice": 69,
+        "itemimage": "img/shirt5.png"
+    },
+    {
+        "itemname": "Casual Shirts(Combo Pack)",
+        "itemdescription": "lksajdfkjlakdjflkjaskjfdlkjalkdfj lkajdfljakd lkjadfj",
+        "itemprice": 29,
+        "itemimage": "img/shirt6.png"
+    }
+
+]

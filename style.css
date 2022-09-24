@@ -27,6 +27,7 @@ body {
     padding: 5px;
     border-radius: 4px;
     position: relative;
+    box-shadow: 3px 2px 8px rgba(0,0,0,0.3);
 }
 .cartAmount {
     position: absolute;
@@ -42,18 +43,18 @@ body {
 
 .shop {
     display: grid;
-    grid-template-columns: repeat(4, 223px);
+    grid-template-columns: repeat(4, 224px);
     gap: 30px;
     justify-content: center;
 }
 @media (max-width: 1000px) {
     .shop {
-        grid-template-columns: repeat(2, 223px);
+        grid-template-columns: repeat(2, 224px);
     }
 }
 @media (max-width: 500px) {
     .shop {
-        grid-template-columns: repeat(1, 223px);
+        grid-template-columns: repeat(1, 224px);
     }
 }
 
