@@ -96,7 +96,7 @@ const generateItem = () => {
                     <h3>${itemName}</h3>
                     <p>${itemDesc}</p>
                     <div class="price-quantity">
-                        <h2><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> ${itemPrice}</h2>
+                        <h2 id="item-price"><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> ${itemPrice}</h2>
                         <div class="buttons">
                             <i class="fa-solid fa-minus" onclick="decrement(${id})"></i>
                             <div class="quantity" id="${id}">0</div>
@@ -139,6 +139,7 @@ const update = (id) => {
     let search = basket.find(x => x.id === id);
     document.querySelector(`#${id}`).innerText = search.item;
     calculation();
+    updateItemPrice(id)
 }
 
 const calculation = () => {
