@@ -1,90 +1,91 @@
 const shop = document.querySelector("#shop");
 const shopItemData = [
     {   
-        id: 1,
+        id: "dsg",
         itemName: "Casual Shirts",
         itemDesc: "Pack of 3 casual shirts ",
         itemUrl: "img/shirt2.jpg",
         itemPrice: 23
     },
     {   
-        id: 2,
+        id: "dfdf",
         itemName: "Stripped Half Shirt",
         itemDesc: "Navy blue color stripped half shirt ",
         itemUrl: "img/shirt3.png",
         itemPrice: 62
     },
     {   
-        id: 3,
+        id: "afdsf",
         itemName: "Casual Partywear Shirt",
         itemDesc: "Pitch color shirt ",
         itemUrl: "img/shirt4.png",
         itemPrice: 85
     },
     {   
-        id: 4,
+        id: "atge",
         itemName: "Black Half Shirt",
         itemDesc: "Black coloured half shirt ",
         itemUrl: "img/shirt5.png",
         itemPrice: 55
     },
     {   
-        id: 5,
+        id: "fadsf",
         itemName: "T-Shirt Red",
         itemDesc: "Red polo t-shirt ",
         itemUrl: "img/tshirt6.png",
         itemPrice: 36
     },
     {   
-        id: 6,
+        id: "bgae",
         itemName: "Casual Shirts",
         itemDesc: "Pack of 2 casual shirts ",
         itemUrl: "img/shirt7.png",
         itemPrice: 125
     },
     {   
-        id: 7,
+        id: "agaee",
         itemName: "Blue Stripped Full Formal",
         itemDesc: "Navy blue coloured stripped check shirt ",
         itemUrl: "img/shirt8.png",
         itemPrice: 99
     },
     {   
-        id: 8,
+        id: "aghra",
         itemName: "Men Casual Shirt Full",
         itemDesc: "Men checked bordered blue full shirt ",
         itemUrl: "img/shirt9.png",
         itemPrice: 69
     },
     {   
-        id: 9,
+        id: "aega",
         itemName: "Men Formal Shirt",
         itemDesc: "Sky color men formal shirt and slim fit ",
         itemUrl: "img/shirt10.png",
         itemPrice: 55
     },
     {   
-        id: 10,
+        id: "agda",
         itemName: "Partywear Men Blue Shirt",
         itemDesc: "Navy Blue coloured partywear slim fit shirt",
         itemUrl: "img/shirt11.png",
         itemPrice: 74
     },
     {   
-        id: 11,
+        id: "awetg",
         itemName: "Men Black Suit",
         itemDesc: "Men Black Suit with great comfort ",
         itemUrl: "img/suit12.png",
         itemPrice: 189
     },
     {   
-        id: 12,
+        id: "aegeg",
         itemName: "Pack of 4 Tees",
         itemDesc: "Pack of 4 tees ",
         itemUrl: "img/shirts.jpg",
         itemPrice: 74
     }
 ]
+const basket = [];
 const generateItem = () => {
     return shop.innerHTML = shopItemData.map(item => {
         let {id, itemUrl, itemName, itemDesc, itemPrice} = item;
@@ -98,7 +99,7 @@ const generateItem = () => {
                         <h2>$${itemPrice}</h2>
                         <div class="buttons">
                             <i class="fa-solid fa-minus" onclick="decrement(${id})"></i>
-                            <div class="quantity" id="price-id${id}">0</div>
+                            <div class="quantity" id="${id}">0</div>
                             <i class="fa-solid fa-plus" onclick="increment(${id})"></i>
                         </div>
                     </div>
@@ -110,14 +111,40 @@ const generateItem = () => {
 generateItem();
 
 
-let increment = (id) => {   
-    console.log("increase")
-    console.log(id);
-}
-let decrement = (id) => {
-    console.log("decrease")
-    console.log(id);
-}
-let update = () => {
+const increment = (id) => {
+    let selectedItem = id;
+    let search = basket.find(x=> x.id === selectedItem.id);
 
+    if(search === undefined){
+        basket.push({
+            id: selectedItem.id,
+            item: 1
+        })
+    }else {
+        search.item += 1;
+    }
+    update(selectedItem.id);
+}
+const decrement = (id) => {
+    let selectedItem = id;
+    let search = basket.find(x=> x.id === selectedItem.id);
+
+    if(search.item === 0) return;
+    else {
+        search.item -= 1;
+    }
+    update(selectedItem.id);
+}
+const update = (id) => {
+    let search = basket.find(x => x.id === id);
+    document.querySelector(`#${id}`).innerText = search.item;
+    calculation();
+}
+
+const calculation = () => {
+    let sum = 0;
+    let basketItem = basket.forEach(i => {
+        return sum+=i.item;
+    })
+    document.querySelector(".cartAmount").innerText = sum;
 }
