@@ -9,9 +9,12 @@
 
 body {
     font-family: sans-serif;
+    position: relative;
 }
 
 .navbar {
+    position: fixed;
+    width: 100vw;
     background-color: #2E0014;
     color: wheat;
     padding: 25px 60px;
@@ -40,12 +43,15 @@ body {
     padding: 3px;
     border-radius: 3px;
 }
-
+.fa-cart-shopping {
+    cursor: pointer;
+}
 .shop {
     display: grid;
     grid-template-columns: repeat(4, 224px);
     gap: 30px;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 1000px) {
@@ -101,10 +107,4 @@ body {
 }
 .fa-plus:active {
     transform: scale(0.8);
-}
-
-.item:hover {
-    transform: scale(1.1);
-    border-radius: 6px;
-    transition: 0.3s linear;
 }

@@ -132,12 +132,14 @@ const decrement = (id) => {
     let selectedItem = id;
     let search = basket.find(x => x.id === selectedItem.id);
 
-    if (search.item === 0) return;
+    if (search === undefined) return ;
+    else if (search.item === 0) return;
     else {
         search.item -= 1;
     }
-    localStorage.setItem("data", JSON.stringify(basket))
+    basket = basket.filter((x)=> x.item !== 0);
     update(selectedItem.id);
+    localStorage.setItem("data", JSON.stringify(basket));
 }
 const update = (id) => {
     let search = basket.find(x => x.id === id);
@@ -152,3 +154,4 @@ const calculation = () => {
     })
     document.querySelector(".cartAmount").innerText = sum;
 }
+calculation();
