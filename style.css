@@ -9,11 +9,11 @@
 
 body {
     font-family: sans-serif;
-    position: relative;
+    /* position: relative; */
 }
 
 .navbar {
-    position: fixed;
+    /* position: fixed; */
     width: 100vw;
     background-color: #2E0014;
     color: wheat;
