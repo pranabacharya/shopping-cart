@@ -13,8 +13,8 @@ const generateCartItems = () => {
     if(basket.length !== 0){
        return (shoppingCart.innerHTML = basket.map(x => {
             let {id, item} = x;
-            let {itemUrl, itemName, itemPrice} = search;
             const search = shopItemData.find(y => y.id === id) || [];
+            let {itemName, itemUrl, itemPrice} = search;
             return `
                 <div class="cart-item">
                     <img width="100" src="${itemUrl}" />
